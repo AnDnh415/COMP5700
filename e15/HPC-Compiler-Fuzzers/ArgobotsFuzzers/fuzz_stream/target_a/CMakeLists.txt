@@ -1,0 +1,3 @@
+
+add_executable(StreamFuzzer_xstreamSelfRank fuzzer.cpp)
+target_link_libraries(StreamFuzzer_xstreamSelfRank PRIVATE ${llvm_libs})

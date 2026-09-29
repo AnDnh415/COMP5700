@@ -1,0 +1,70 @@
+--- CRASH #1 ---
+INPUT (v1): ('a', 'b')
+INPUT (v2): '😂'
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'str'
+---------------------
+
+--- CRASH #2 ---
+INPUT (v1): 'SELECT * FROM users;'
+INPUT (v2): (1+2j)
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'complex'
+---------------------
+
+--- CRASH #3 ---
+INPUT (v1): 'None'
+INPUT (v2): "<script>alert('XSS')</script>"
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'str'
+---------------------
+
+--- CRASH #4 ---
+INPUT (v1): '\n'
+INPUT (v2): '3.14'
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'str'
+---------------------
+
+--- CRASH #5 ---
+INPUT (v1): '\t'
+INPUT (v2): 'false'
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'str'
+---------------------
+
+--- CRASH #6 ---
+INPUT (v1): -inf
+INPUT (v2): ('a', 'b')
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'float'
+---------------------
+
+--- CRASH #7 ---
+INPUT (v1): inf
+INPUT (v2): '1'
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'float'
+---------------------
+
+--- CRASH #8 ---
+INPUT (v1): [1, 2, 3]
+INPUT (v2): '[]'
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'str'
+---------------------
+
+--- CRASH #9 ---
+INPUT (v1): (1+2j)
+INPUT (v2): ' '
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'complex'
+---------------------
+
+--- CRASH #10 ---
+INPUT (v1): 'NaN'
+INPUT (v2): '1'
+ERROR TYPE: TypeError
+ERROR MSG:  can't multiply sequence by non-int of type 'str'
+---------------------
+

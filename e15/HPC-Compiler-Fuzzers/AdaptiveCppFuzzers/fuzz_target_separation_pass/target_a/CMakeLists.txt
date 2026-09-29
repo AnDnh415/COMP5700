@@ -1,0 +1,3 @@
+
+add_executable(TargetSeparationPassFuzzer_timer fuzzer.cpp)
+target_link_libraries(TargetSeparationPassFuzzer_timer PRIVATE ${llvm_libs})

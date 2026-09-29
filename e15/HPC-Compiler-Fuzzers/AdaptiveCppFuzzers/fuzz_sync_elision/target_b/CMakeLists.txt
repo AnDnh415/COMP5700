@@ -1,0 +1,5 @@
+
+add_executable(syncElisionFuzzer_StdParArgHandling_a fuzzer_a.cpp)
+add_executable(syncElisionFuzzer_StdParArgHandling_b fuzzer_b.cpp)
+target_link_libraries(syncElisionFuzzer_StdParArgHandling_a PRIVATE ${llvm_libs})
+target_link_libraries(syncElisionFuzzer_StdParArgHandling_b PRIVATE ${llvm_libs})

@@ -1,0 +1,3 @@
+
+add_executable(syncElisionFuzzer_allAreSucceedingInBB fuzzer_a.cpp)
+target_link_libraries(syncElisionFuzzer_allAreSucceedingInBB PRIVATE ${llvm_libs})

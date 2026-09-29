@@ -1,0 +1,3 @@
+
+add_executable(CondFuzzer_convertTimespecToSec fuzzer.cpp)
+target_link_libraries(CondFuzzer_convertTimespecToSec PRIVATE ${llvm_libs})

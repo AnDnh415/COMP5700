@@ -1,0 +1,3 @@
+
+add_executable(FilesystemFuzzer_atomicWrite fuzzer.cpp)
+target_link_libraries(FilesystemFuzzer_atomicWrite PRIVATE ${llvm_libs})

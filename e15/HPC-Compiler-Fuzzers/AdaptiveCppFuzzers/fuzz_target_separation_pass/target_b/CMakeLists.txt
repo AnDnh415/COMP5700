@@ -1,0 +1,3 @@
+
+add_executable(TargetSeparationPassFuzzer_kernelInfo fuzzer.cpp)
+target_link_libraries(TargetSeparationPassFuzzer_kernelInfo PRIVATE ${llvm_libs})

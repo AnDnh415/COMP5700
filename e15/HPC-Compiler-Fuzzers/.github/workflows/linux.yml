@@ -1,0 +1,82 @@
+# See: https://github.com/actions/starter-workflows/blob/main/ci/cmake-multi-platform.yml
+name: Build AdaptiveCpp fuzzers
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install LLVM and Clang compilers
+        run: |
+          wget https://apt.llvm.org/llvm.sh #Convenience script that sets up the repositories
+          sudo chmod +x llvm.sh
+          sudo ./llvm.sh 18
+          sudo apt install -y libclang-18-dev clang-tools-18 libomp-18-dev llvm-18-dev lld-18
+
+      - name: Check LLVM and Clang
+        run: |
+          clang++ --version
+          clang --version
+          ls -l /usr/lib/ | grep -i llvm
+
+      - name: Configure CMake with Clang-18
+        run: |
+          mkdir -p build
+          cd build
+          cmake -DCMAKE_C_COMPILER=/usr/bin/clang-18 -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 ..
+
+      - name: List dependencies
+        run: |
+          ls -la build/_deps/adaptivecpp-src/include
+
+      - name: Build and make the executables
+        run: |
+          cd build
+          cmake ..
+          make
+
+      - name: Test Fuzzers
+        run: |
+          cd build/AdaptiveCppFuzzers
+          ./fuzz_sync_elision/target_a/syncElisionFuzzer_allAreSucceedingInBB -runs=2
+          ./fuzz_sync_elision/target_b/syncElisionFuzzer_StdParArgHandling_a -runs=2
+          ./fuzz_sync_elision/target_b/syncElisionFuzzer_StdParArgHandling_b -runs=2
+          ./fuzz_llvm_to_spirv/target_a/LLVMToSpirvFuzzer_appendIntelLLVMSpirvOptions -runs=2
+          ./fuzz_kernel_outlining_pass/target_a/KernelOutliningPassFuzzer_isUsedInFunctions -runs=2
+          ./fuzz_target_separation_pass/target_a/TargetSeparationPassFuzzer_timer -runs=2
+          ./fuzz_target_separation_pass/target_b/TargetSeparationPassFuzzer_kernelInfo -runs=2
+          ./fuzz_filesystem/target_a/FilesystemFuzzer_joinPath -runs=2
+          ./fuzz_filesystem/target_b/FilesystemFuzzer_listRegularFiles -runs=2
+          ./fuzz_filesystem/target_c/FilesystemFuzzer_listRegularFiles2 -runs=2
+          ./fuzz_filesystem/target_d/FilesystemFuzzer_atomicWrite -runs=2
+          ./fuzz_vectorization_info/target_a/getVectorShapeFuzzer_VectorizationInfo -runs=2
+          ./fuzz_introspect_struct_pass/target_a/IntrospectStructPassFuzzer_createConstantIntArray -runs=2
+          ./fuzz_introspect_struct_pass/target_b/IntrospectStructPassFuzzer_getTypeKind -runs=2
+
+          cd ../ArgobotsFuzzers
+          ./fuzz_cond/target_a/CondFuzzer_convertTimespecToSec -runs=2
+          ./fuzz_stream/target_a/StreamFuzzer_xstreamSelfRank -runs=2
+          ./fuzz_stream/target_b/StreamFuzzer_xstreamSelf -runs=2
+          ./fuzz_stream/target_c/StreamFuzzer_xstreamGetRank -runs=2
+
+          cd ../CaliperFuzzers
+          ./fuzz_gotcha_elf_ops/target_a/elfOpsFuzzer_elfHash_a -runs=2
+          ./fuzz_config_manager/target_a/configManagerFuzzer_toStringlist -runs=2
+          ./fuzz_config_manager/target_b/configManagerFuzzer_findOr -runs=2
+          ./fuzz_gotcha_libc_wrapper/target_a/libcWrapperFuzzer_strNLen -runs=2
+
+      - name: Upload Fuzzers
+        uses: actions/upload-artifact@v4
+        with:
+          name: Fuzzers
+          path: build/*Fuzzers

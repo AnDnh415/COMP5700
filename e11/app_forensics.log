@@ -1,0 +1,15 @@
+2025-11-03 21:03:49,744:This is for the demonstration of workshop 10.
+2025-11-03 21:03:49,744:The calculator application has started...
+2025-11-03 21:03:49,744:add | The arguments that were provided -> a:10, b:5
+2025-11-03 21:03:49,744:sub | The arguments that were provided -> a:100, b:50
+2025-11-03 21:03:49,744:mul | The arguments that were provided -> a:5, b:5
+2025-11-03 21:03:49,744:simpleDiv | The arguments that were provided -> a:20, b:4
+2025-11-03 21:03:49,744:simpleDiv | The arguments that were provided -> a:10, b:0
+2025-11-03 21:03:49,744:simpleDiv | Exception occurred with arguments -> a:10, b:0
+Traceback (most recent call last):
+  File "/Users/andinh/Downloads/COMP5700/e11/audit_log.py", line 23, in wrapper
+    return func(a, b)
+  File "/Users/andinh/Downloads/COMP5700/e11/audit_log.py", line 35, in simpleDiv
+    return a/b
+           ~^~
+ZeroDivisionError: division by zero

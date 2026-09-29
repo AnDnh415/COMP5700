@@ -1,0 +1,6 @@
+add_executable(elfOpsFuzzer_elfHash_a ${CALIPER_SRC_DIR}/ext/gotcha/src/elf_ops.c fuzzer_a.cpp)
+target_link_libraries(elfOpsFuzzer_elfHash_a)
+add_executable(elfOpsFuzzer_elfHash_b ${CALIPER_SRC_DIR}/ext/gotcha/src/elf_ops.c fuzzer_b.cpp)
+target_link_libraries(elfOpsFuzzer_elfHash_b)
+add_executable(elfOpsFuzzer_elfHash_c ${CALIPER_SRC_DIR}/ext/gotcha/src/elf_ops.c fuzzer_c.cpp)
+target_link_libraries(elfOpsFuzzer_elfHash_c)

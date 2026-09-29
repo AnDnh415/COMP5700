@@ -1,0 +1,3 @@
+
+add_executable(IntrospectStructPassFuzzer_createConstantIntArray fuzzer.cpp)
+target_link_libraries(IntrospectStructPassFuzzer_createConstantIntArray PRIVATE ${llvm_libs})

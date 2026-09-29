@@ -1,0 +1,3 @@
+
+add_executable(LLVMToSpirvFuzzer_appendIntelLLVMSpirvOptions fuzzer.cpp)
+target_link_libraries(LLVMToSpirvFuzzer_appendIntelLLVMSpirvOptions PRIVATE ${llvm_libs})

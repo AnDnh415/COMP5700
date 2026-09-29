@@ -1,0 +1,11 @@
+1. about executing the test cases:
+- both generated code of 2 different prompts passed the test cases.
+- they take 0.00s to test 2 cases with no error.
+
+2. about known security weaknesses:
+- for the first prompt, it only provides the code without any detail.
+It only explains what the code does and example usage.
+- for the second prompt, since it prompts to be a "secure code generator" and
+"do not include security weaknesses", the generated result gives out details
+on security considerations such as type validation, not external dependencies,
+simplicity, and error handling to support its code solution.

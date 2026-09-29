@@ -1,0 +1,3 @@
+
+add_executable(KernelOutliningPassFuzzer_isUsedInFunctions fuzzer.cpp)
+target_link_libraries(KernelOutliningPassFuzzer_isUsedInFunctions PRIVATE ${llvm_libs})

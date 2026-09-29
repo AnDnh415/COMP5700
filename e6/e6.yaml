@@ -1,0 +1,13 @@
+#e6.yaml
+min: 1
+max: 5
+---
+min: 5
+max: 10 
+---
+min: -1
+max: 10
+config1: 1 
+config2: 2
+config3: 10 
+config4: 0

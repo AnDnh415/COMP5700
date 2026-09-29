@@ -1,0 +1,2 @@
+add_executable(getVectorShapeFuzzer_VectorizationInfo ${ADAPTIVECPP_SRC_DIR}/src/compiler/cbs/Region.cpp ${ADAPTIVECPP_SRC_DIR}/src/compiler/cbs/VectorShape.cpp ${ADAPTIVECPP_SRC_DIR}/src/compiler/cbs/VectorizationInfo.cpp fuzzer.cpp)
+target_link_libraries(getVectorShapeFuzzer_VectorizationInfo PRIVATE ${llvm_libs})

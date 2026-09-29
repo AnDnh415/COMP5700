@@ -1,0 +1,3 @@
+
+add_executable(IntrospectStructPassFuzzer_getTypeKind fuzzer.cpp)
+target_link_libraries(IntrospectStructPassFuzzer_getTypeKind PRIVATE ${llvm_libs})

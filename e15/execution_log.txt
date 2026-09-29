@@ -1,0 +1,32 @@
+--- Test Case #1: cppchecl --enable=warnings --std=c++11 --platform=unix64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #2: cppchecl --enable=unusedFunction --std=c++14 --platform=unix64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #3: cppchecl --enable=performance --std=c++17 --platform=unix64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #4: cppchecl --enable=portability --std=c++20 --platform=unix64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #5: cppchecl --enable=portability --std=c++17 --platform=win64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #6: cppchecl --enable=performance --std=c++14 --platform=win64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #7: cppchecl --enable=unusedFunction --std=c++11 --platform=win64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #8: cppchecl --enable=warnings --std=c++20 --platform=win64 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #9: cppchecl --enable=warnings --std=c++17 --platform=arv8 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #10: cppchecl --enable=unusedFunction --std=c++20 --platform=arv8 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #11: cppchecl --enable=performance --std=c++11 --platform=arv8 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #12: cppchecl --enable=portability --std=c++14 --platform=arv8 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #13: cppchecl --enable=portability --std=c++11 --platform=mips32 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #14: cppchecl --enable=performance --std=c++20 --platform=mips32 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #15: cppchecl --enable=unusedFunction --std=c++17 --platform=mips32 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'
+--- Test Case #16: cppchecl --enable=warnings --std=c++14 --platform=mips32 HPC-Compiler-Fuzzers ---
+Error executing command: [Errno 2] No such file or directory: 'cppchecl'

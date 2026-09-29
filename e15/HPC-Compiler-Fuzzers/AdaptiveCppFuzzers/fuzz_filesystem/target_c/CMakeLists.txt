@@ -1,0 +1,3 @@
+
+add_executable(FilesystemFuzzer_listRegularFiles2 fuzzer.cpp)
+target_link_libraries(FilesystemFuzzer_listRegularFiles2 PRIVATE ${llvm_libs})
